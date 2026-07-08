@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Hospedador Habbo</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<div id="overlayDrop">
+    <div class="box-drop">
+        <p>Solte para hospedar no Hostim</p>
+    </div>
+</div>
+<div class="container main-layout">
+    <div class="form-area">
+        <center>
+        <h1>Hospedar Imagens</h1>
+        </center>
+        <input type="file" id="imagemUpload" accept="image/*" multiple style="display:none;">
+        <button id="botaoEnviar">Selecionar Imagens</button>
+        
+        <div id="containerGrupos" class="lista-imagens"></div>
+    </div>
+    <div class="preview-area">
+        <img id="avatarPreview" src="avatar_padrao.png" alt="Avatar Habbo" style="width: 150px;">
+    </div>
+</div>
+<div id="modalVisualizacao" class="modal" onclick="fecharModal()">
+        <span class="fechar">&times;</span>
+        <img class="modal-conteudo" id="imagemAmpliada">
+    </div>
+
+    <footer class="footer">
+        <center>
+             &copy; 2026 - Hospedar Imagens | Desenvolvido por yycecedilha
+        </center>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

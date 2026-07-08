@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Visualizar Álbum | Hospedador Habbo</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <div class="container main-layout">
+        <center><h1>Álbum de Imagens</h1></center>
+        <div id="containerAlbum" class="galeria-preview">Carregando imagens...</div>
+    </div>
+
+    <!-- Modal que você já usa no index -->
+    <div id="modalVisualizacao" class="modal" onclick="fecharModal()">
+        <img class="modal-conteudo" id="imagemAmpliada">
+    </div>
+
+    <script>
+        const WORKER_URL = 'https://gerador-rcc-upload.athropusoriginal.workers.dev';
+        
+        async function carregarAlbum() {
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get('id');
+            const container = document.getElementById('containerAlbum');
+
+            if (!id) {
+                container.innerHTML = "Álbum não encontrado.";
+                return;
+            }
+
+            try {
+                const resposta = await fetch(`${WORKER_URL}/album/${id}`);
+                const links = await resposta.json();
+
+                if (links.error) {
+                    container.innerHTML = "Álbum não encontrado ou expirou.";
+                    return;
+                }
+
+                container.innerHTML = links.map(link => 
+                    `<img src="${link}" class="thumb" onclick="abrirModal('${link}')">`
+                ).join('');
+
+            } catch (e) {
+                container.innerHTML = "Erro ao carregar o álbum.";
+            }
+        }
+
+        function abrirModal(src) {
+            document.getElementById("modalVisualizacao").style.display = "block";
+            document.getElementById("imagemAmpliada").src = src;
+        }
+
+        function fecharModal() {
+            document.getElementById("modalVisualizacao").style.display = "none";
+        }
+
+        carregarAlbum();
+    </script>
+</body>
+</html>
