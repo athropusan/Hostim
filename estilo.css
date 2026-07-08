@@ -11,10 +11,10 @@ button:hover { background-color: #e68900; }
 
 .item-upload {
     display: flex;
-    flex-direction: row; /* Coloca tudo em linha */
+    flex-direction: row;
     align-items: flex-start;
     gap: 20px;
-    background: transparent; /* Remove o fundo branco */
+    background: transparent;
     padding: 10px;
 }
 
@@ -22,7 +22,7 @@ button:hover { background-color: #e68900; }
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    max-width: 300px; /* Ajuste conforme necessário */
+    max-width: 300px;
 }
 
 .thumb { width: 50px; height: 50px; object-fit: cover; border-radius: 3px; }
@@ -67,10 +67,10 @@ footer {
     transition: background 0.3s;
 }
 #overlayDrop {
-    display: none; /* Escondido por padrão */
+    display: none;
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.85); /* Fundo preto semi-transparente */
+    background: rgba(0, 0, 0, 0.85);
     z-index: 9999;
     justify-content: center;
     align-items: center;
@@ -79,15 +79,15 @@ footer {
 .box-drop {
     width: 60%;
     height: 60%;
-    border: 5px solid #ffce00; /* Amarelo vibrante */
+    border: 5px solid #ffce00;
     background: #1a1a1a;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 0 50px #ffce00, inset 0 0 20px #ffd700; /* Efeito de brilho */
+    box-shadow: 0 0 50px #ffce00, inset 0 0 20px #ffd700;
     border-radius: 15px;
     position: relative;
-    border-image: linear-gradient(45deg, #ffd700, #ffce00) 1; /* Linhas douradas */
+    border-image: linear-gradient(45deg, #ffd700, #ffce00) 1;
 }
 
 .box-drop p {
